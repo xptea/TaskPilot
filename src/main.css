@@ -1,0 +1,187 @@
+@import url("https://fonts.cdnfonts.com/css/inter");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --accent-color: #333333;
+  --text-primary: #ffffff;
+  --text-secondary: #666666;
+}
+
+@layer components {
+	.logo-link {
+		@apply h-28 w-28 inline-flex justify-center items-center;
+	}
+	.logo {
+		@apply bg-contain transition-all ease-out size-full hover:size-[110%] max-w-max;
+	}
+  .board-container {
+    @apply flex-1 overflow-y-auto p-2 bg-black h-screen;
+  }
+  
+  .list-container {
+    @apply flex flex-col gap-2 max-w-[280px] mx-auto;
+  }
+  
+  .list {
+    @apply bg-[#111111] rounded-md p-2 w-full flex flex-col gap-2 border border-[#222222];
+    touch-action: none;
+  }
+  
+  .card {
+    @apply bg-black p-2.5 rounded-sm hover:bg-[#0a0a0a] transition-colors border border-[#222222];
+    touch-action: none;
+  }
+  
+  .card input,
+  .card textarea {
+    @apply bg-[#111111] rounded-sm transition-colors duration-200;
+  }
+
+  .card input:focus,
+  .card textarea:focus {
+    @apply bg-[#0a0a0a] border-[#444444];
+  }
+
+  .card button {
+    @apply p-1 rounded-sm hover:bg-[#111111] transition-all duration-200;
+  }
+  
+  .card h4 {
+    @apply cursor-grab active:cursor-grabbing;
+  }
+
+  .card-content {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .card-collapse-enter {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .card-collapse-enter-active {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .card-collapse-exit {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .card-collapse-exit-active {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .btn {
+    @apply bg-black px-2 py-1 rounded-sm hover:bg-[#111111] transition-colors border border-[#333333] text-xs;
+  }
+
+  .dragging {
+    @apply opacity-90 shadow-xl;
+  }
+
+  .dragging-over {
+    @apply border-[#444444];
+  }
+
+  .draggable {
+    user-select: none;
+  }
+
+
+
+  [data-rbd-drag-handle-context-id] {
+    cursor: grab;
+  }
+
+  [data-rbd-drag-handle-context-id]:active {
+    cursor: grabbing;
+  }
+
+
+}
+
+body {
+  @apply bg-black text-white;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+:root {
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+
+	color: theme("colors.neutral.200");
+	background-color: theme("colors.neutral.800");
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color: theme("colors.neutral.200");
+		background-color: theme("colors.neutral.800");
+	}
+}
+
+/* ...existing styles... */
+
+/* Remove ALL existing scrollbar styles and replace with these new ones */
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* Firefox */
+* {
+  scrollbar-color: #222222 #000000;
+  scrollbar-width: thin;
+}
+
+/* Hide scrollbar class */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Remove any other scrollbar styles */
+
+/* Hide scrollbars globally for WebKit browsers */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
